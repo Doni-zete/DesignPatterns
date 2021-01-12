@@ -47,7 +47,7 @@ namespace DesignPatternSamples.WebAPI
             services.AddDependencyInjection()
                 .AddAutoMapper();
 
-            /*Cache distribuído FAKE*/
+            /*Cache distribuï¿½do FAKE*/
             services.AddDistributedMemoryCache();
             
             services.AddControllers();
@@ -129,6 +129,7 @@ namespace DesignPatternSamples.WebAPI
                 .Register("PE", typeof(DetranPEVerificadorDebitosRepository))
                 .Register("RJ", typeof(DetranRJVerificadorDebitosRepository))
                 .Register("SP", typeof(DetranSPVerificadorDebitosRepository))
+                .Register("SP", typeof(DetranSPVerificadorPontosCarteiraRepository))
                 .Register("RS", typeof(DetranRSVerificadorDebitosRepository));
 
             return app;

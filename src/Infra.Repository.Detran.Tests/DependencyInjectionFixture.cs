@@ -16,9 +16,11 @@ namespace DesignPatternsSamples.Infra.Repository.Detran.Tests
                 .AddLogging()
                 .AddTransient<DetranPEVerificadorDebitosRepository>()
                 .AddTransient<DetranSPVerificadorDebitosRepository>()
+                .AddTransient<DetranSPVerificadorPontosCarteiraRepository>()
                 .AddTransient<DetranRJVerificadorDebitosRepository>()
                 .AddTransient<DetranRSVerificadorDebitosRepository>()
                 .AddSingleton<IDetranVerificadorDebitosFactory, DetranVerificadorDebitosFactory>();
+                .AddSingleton<IDetranVerificadorDebitosFactory, DetranVerificadorPontosCarteiraFactory>();
 
             #region IConfiguration
             services.AddTransient<IConfiguration>((services) =>
@@ -36,6 +38,7 @@ namespace DesignPatternsSamples.Infra.Repository.Detran.Tests
                 .Register("PE", typeof(DetranPEVerificadorDebitosRepository))
                 .Register("RJ", typeof(DetranRJVerificadorDebitosRepository))
                 .Register("SP", typeof(DetranSPVerificadorDebitosRepository))
+                .Register("SP", typeof(DetranSPVerificadorPontosCarteiraRepository))
                 .Register("RS", typeof(DetranRSVerificadorDebitosRepository));
         }
     }
